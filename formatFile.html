@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Formatera Fil</title>
+</head>
+<body>
+
+
+<div class="navbar">
+    <a href="./formatFile.html">Formatera fil</a>
+    <a href="#news">Ändra datum i fil</a>
+</div>
+
+<div style="text-align:center;">
+    <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
+    <input type="button" value="Välj en fil" id="select-file"/>
+</div>
+
+<script type="module" src="/src/renderer.ts"></script>
+<script>
+
+    // const {ipcRenderer,webUtils, dialog} = require('electron');
+
+    // console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
+    // document.getElementById('select-file').addEventListener('click',function(){
+    //   console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
+    // },false);
+
+
+
+    //TODO: börja läsa filen och spara om den....
+
+    // function messageMediaPreviewDrop(event) {
+    //   event.preventDefault();
+    //   console.log(event.dataTransfer.files[0]);
+    //   console.log(webUtils.getPathForFile(event.dataTransfer.files[0]));
+    //
+    // }
+    document.body.addEventListener("dragover", evt => {
+        evt.preventDefault();
+    });
+
+    document.body.addEventListener("drop", evt => {
+        evt.preventDefault();
+
+        console.log(webUtils.getPathForFile(evt.dataTransfer.files[0]));
+        console.log(evt.dataTransfer.files[0]);
+
+    });
+</script>
+
+</body>
+</html>
