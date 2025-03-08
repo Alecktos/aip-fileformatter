@@ -12,8 +12,8 @@ if (started) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
+    width: 500,
+    height: 350,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -30,19 +30,19 @@ const createWindow = () => {
 };
 
 const handleOpenDialog = async () => {
-  const { canceled, filePaths } = await dialog.showOpenDialog({ title: "Välj fil", properties: ['openFile', 'multiSelections'] })
+  const { canceled, filePaths } = await dialog.showOpenDialog({ title: "Välj fil", properties: ['openFile'] })
   if(canceled) {
     return []
   }
+  return filePaths
+}
 
-  filePaths.forEach(filePath => {
-    const newFileContent = readAllLinesFromFile(filePath).map((line) => {
+const handleFormatingFile = async (event, filePath) => {
+  const newFileContent = readAllLinesFromFile(filePath).map((line) => {
       return parseLine(line);
     });
     writeLinesToFile(`${filePath}-test`, newFileContent)
-  });
-
-  return filePaths
+    return true;
 }
 
 // This method will be called when Electron has finished
@@ -50,6 +50,7 @@ const handleOpenDialog = async () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   ipcMain.handle('open-dialog', handleOpenDialog)
+  ipcMain.handle('format-file', handleFormatingFile);
   createWindow();
 });
 

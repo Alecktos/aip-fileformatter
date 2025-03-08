@@ -34,3 +34,11 @@ body {
   margin-top: 2rem;
   padding-bottom: 2rem;
 }
+
+#selected-file {
+  width: 80%;
+  background-color: #efeeee;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+}

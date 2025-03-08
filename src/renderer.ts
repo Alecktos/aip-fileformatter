@@ -27,14 +27,43 @@
  */
 
 import './index.css';
+import './spinner.css';
 
-console.log('👋 This message is being logged by "renderer.ts", included via Vite');
+// Format File Page
 
-const setButton = document.getElementById('select-file')
-// const titleInput = document.getElementById('title')
-setButton.addEventListener('click', async () => {
-    // const title = titleInput.value
+const formatFileButton = document.getElementById('format-files') as HTMLButtonElement;
+const selectFileButton = document.getElementById('select-file') as HTMLButtonElement;
+const selectedFileInput = document.getElementById('selected-file') as HTMLInputElement;
+const formatFileSpinner = document.getElementById('format-file-spinner') as HTMLDivElement;
+
+const setFileSelectedState = (filePath) => {
+    selectedFileInput.value = filePath
+    formatFileButton.disabled = false;
+}
+
+selectFileButton.addEventListener('click', async () => {
     const filePaths = await window.electronAPI.openDialog()
-    filePaths.forEach(p => console.log(p))
-    // console.log('result', result);
-})
+    setFileSelectedState(filePaths[0]);
+});
+
+formatFileButton.addEventListener('click', async () => {
+    formatFileSpinner.style.visibility = 'visible';
+
+    await window.electronAPI.formatFile(selectedFileInput.value)
+    formatFileSpinner.style.visibility = 'hidden';
+    selectedFileInput.value = 'Klart! Filen har formaterats';
+    formatFileButton.disabled = true;
+});
+
+document.body.addEventListener("dragover", evt => {
+    evt.preventDefault();
+});
+
+document.body.addEventListener("drop", evt => {
+    evt.preventDefault();
+    const filePath = window.electronAPI.pathForFile(evt.dataTransfer.files[0]);
+    setFileSelectedState(filePath);
+});
+
+
+
