@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <title>AIP filformaterare</title>
-  </head>
-  <body>
+    <title>Formatera Fil</title>
+</head>
+<body>
 
-  <div class="navbar">
-    <a href="./formatFile.html">Formatera fil</a>
-    <a href="#news">Ändra datum i fil</a>
-  </div>
+<div class="navbar">
+    <a style="color: black" href="./formatFile.html">Formatera fil</a>
+    <a href="./changeDate.html">Ändra datum i fil</a>
+</div>
 
-  <script type="module" src="/src/renderer.ts"></script>
-  </body>
+<div style="text-align:center;">
+    <div class="file-upload">
+        <h4>Dra in eller välj fil </h4>
+        <input type="text" id="actual-file" disabled="disabled"/>
+        <input type="button" value="Välj en fil" id="selected-file"/>
+    </div>
+
+    <button disabled="disabled">
+        Formatera fil
+        <!-- Spinner -->
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </button>
+</div>
+
+<script type="module" src="/src/renderer.ts"></script>
+<script>
+    document.body.addEventListener("dragover", evt => {
+        evt.preventDefault();
+    });
+
+    document.body.addEventListener("drop", evt => {
+        evt.preventDefault();
+
+        console.log(webUtils.getPathForFile(evt.dataTransfer.files[0]));
+        console.log(evt.dataTransfer.files[0]);
+    });
+</script>
+
+</body>
 </html>

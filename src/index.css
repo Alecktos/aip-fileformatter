@@ -6,7 +6,7 @@ body {
   padding: 2rem;*/
 }
 
-/* First Page */
+/* Global */
 .navbar {
   background-color: #efeeee;
   color: white;
@@ -22,4 +22,15 @@ body {
   a:hover {
     color: black;
   }
+}
+
+/* File Format */
+.file-upload {
+  border: gray 0.1rem dashed;
+  border-radius: 0.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
 }
