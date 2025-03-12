@@ -7,8 +7,25 @@
   <body>
 
   <div class="navbar">
-    <a href="./formatFile.html">Formatera fil</a>
+    <a href="./index.html">Formatera fil</a>
     <a style="color: black" href="./changeDate.html">Ändra datum i fil</a>
+  </div>
+
+  <div style="text-align:center;">
+    <div class="file-upload">
+      <h4>Dra in eller välj fil </h4>
+      <input type="text" id="selected-file" disabled="disabled"/>
+      <input type="button" value="Välj en fil" id="select-file"/>
+    </div>
+
+    <label for="add-days">Antal dagar</label>
+    <input type="number" disabled=disabled id="add-days" name="addDays" min="10" max="100" />
+
+    <button id="format-files" disabled="disabled">
+      Formatera fil
+      <!-- Spinner -->
+      <div id="format-file-spinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </button>
   </div>
 
   <script type="module" src="/src/renderer.ts"></script>

@@ -6,8 +6,8 @@ enum DateFormats {
 }
 
 export const changeDate =  (line: string, daysToAdd: number) => {
-    line = replaceDateByRegex(DateFormats.WITH_CENTURY, line, daysToAdd);
     line = replaceDateByRegex(DateFormats.WITHOUT_CENTURY, line, daysToAdd);
+    line = replaceDateByRegex(DateFormats.WITH_CENTURY, line, daysToAdd);
 
     return line;
 }

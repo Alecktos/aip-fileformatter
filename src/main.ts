@@ -3,6 +3,7 @@ import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import {parseLine} from "./main/lineFormatter/lineFormatter";
 import {readAllLinesFromFile, writeLinesToFile} from "./main/fileHandler";
+import {changeDate} from "./main/dateFormatter/dateFormatter";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -45,12 +46,21 @@ const handleFormatingFile = async (event, filePath) => {
     return true;
 }
 
+const handleChangingDate = async (event, filePath, daysToAdd) => {
+  const newFileContent = readAllLinesFromFile(filePath).map((line) => {
+    return changeDate(line, daysToAdd);
+  });
+  writeLinesToFile(`${filePath}-test`, newFileContent)
+  return true;
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   ipcMain.handle('open-dialog', handleOpenDialog)
   ipcMain.handle('format-file', handleFormatingFile);
+  ipcMain.handle('change-date', handleChangingDate);
   createWindow();
 });
 
