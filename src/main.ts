@@ -27,7 +27,7 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
   // Open the DevTools.
-   mainWindow.webContents.openDevTools();
+   // mainWindow.webContents.openDevTools();
 };
 
 const handleOpenDialog = async () => {
@@ -42,7 +42,7 @@ const handleFormatingFile = async (event, filePath) => {
   const newFileContent = readAllLinesFromFile(filePath).map((line) => {
       return parseLine(line);
     });
-    writeLinesToFile(`${filePath}-test`, newFileContent)
+    writeLinesToFile(`${filePath}`, newFileContent)
     return true;
 }
 
@@ -50,7 +50,7 @@ const handleChangingDate = async (event, filePath, daysToAdd) => {
   const newFileContent = readAllLinesFromFile(filePath).map((line) => {
     return changeDate(line, daysToAdd);
   });
-  writeLinesToFile(`${filePath}-test`, newFileContent)
+  writeLinesToFile(`${filePath}`, newFileContent)
   return true;
 }
 
