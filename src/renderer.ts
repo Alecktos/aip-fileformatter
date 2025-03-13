@@ -35,7 +35,7 @@ const formatFileButton = document.getElementById('format-files') as HTMLButtonEl
 const selectFileButton = document.getElementById('select-file') as HTMLButtonElement;
 const selectedFileInput = document.getElementById('selected-file') as HTMLInputElement;
 const formatFileSpinner = document.getElementById('format-file-spinner') as HTMLDivElement;
-const addDaysInput = document.getElementById('add-days') as HTMLInputElement;
+const addDaysInput = document.getElementById('add-days') as HTMLInputElement || {} as HTMLInputElement;
 
 const setFileSelectedState = (filePath) => {
     selectedFileInput.value = filePath
@@ -51,7 +51,7 @@ selectFileButton.addEventListener('click', async () => {
 formatFileButton.addEventListener('click', async () => {
     formatFileSpinner.style.visibility = 'visible';
 
-    if(window.location.pathname === "/index.html") {
+    if(window.location.pathname === "/") {
         await window.electronAPI.formatFile(selectedFileInput.value)
     } else if (window.location.pathname === "/changeDate.html") {
         console.log('klickar och kör changeDate: ', Number(addDaysInput.value.trim()));
