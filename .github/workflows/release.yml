@@ -1,8 +1,7 @@
 name: Release app
 on:
   workflow_dispatch:
-permissions:
-  packages: write
+permissions: write-all
 jobs:
   build:
     strategy:
