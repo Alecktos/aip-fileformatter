@@ -24,7 +24,8 @@ const config: ForgeConfig = {
           owner: 'Alecktos',
           name: 'aip-fileformatter'
         },
-        prerelease: true
+        prerelease: true,
+        force: true
       }
     }
   ],
