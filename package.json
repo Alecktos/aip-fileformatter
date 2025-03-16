@@ -2,7 +2,7 @@
   "name": "aip-format-file",
   "productName": "aip-format-file",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Formatering av filer",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -21,12 +21,14 @@
   "devDependencies": {
     "@electron-forge/cli": "^7.7.0",
     "@electron-forge/maker-deb": "^7.7.0",
+    "@electron-forge/maker-dmg": "^7.7.0",
     "@electron-forge/maker-rpm": "^7.7.0",
     "@electron-forge/maker-squirrel": "^7.7.0",
     "@electron-forge/maker-zip": "^7.7.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
     "@electron-forge/plugin-fuses": "^7.7.0",
     "@electron-forge/plugin-vite": "^7.7.0",
+    "@electron-forge/publisher-github": "^7.7.0",
     "@electron/fuses": "^1.8.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
