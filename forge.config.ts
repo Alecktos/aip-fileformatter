@@ -9,6 +9,7 @@ import VitePlugin from "@electron-forge/plugin-vite";
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    executableName: 'aip-format-file.exe',
     icon: './icons/aip',
   },
   rebuildConfig: {},
@@ -16,6 +17,7 @@ const config: ForgeConfig = {
       new MakerSquirrel({
         // CamelCase version without spaces
         name: "aipFormatFile",
+        "exe": "aip-format-file.exe"
       }, ['linux']), new MakerZIP({}, ['darwin']), new MakerDMG({}, ['darwin'])
   ],
   publishers: [
