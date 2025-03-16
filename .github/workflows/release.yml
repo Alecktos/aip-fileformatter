@@ -19,6 +19,6 @@ jobs:
           node-version: 22
       - run: npm ci
       - name: Publish app
-        env:
+        # env:
           # GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run publish
