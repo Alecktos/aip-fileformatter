@@ -16,7 +16,7 @@ const config: ForgeConfig = {
   makers: [
       new MakerSquirrel({
         // CamelCase version without spaces
-        name: "aipFormatFile",
+        name: "aip-format-file",
         "exe": "aip-format-file.exe"
       }, ['linux', 'win32']), new MakerZIP({}, ['darwin']), new MakerDMG({}, ['darwin'])
   ],
