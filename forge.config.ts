@@ -18,7 +18,7 @@ const config: ForgeConfig = {
         // CamelCase version without spaces
         name: "aipFormatFile",
         "exe": "aip-format-file.exe"
-      }, ['linux']), new MakerZIP({}, ['darwin']), new MakerDMG({}, ['darwin'])
+      }, ['linux', 'win32']), new MakerZIP({}, ['darwin']), new MakerDMG({}, ['darwin'])
   ],
   publishers: [
     {
