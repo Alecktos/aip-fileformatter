@@ -4,6 +4,14 @@ import started from 'electron-squirrel-startup';
 import {parseLine} from "./main/lineFormatter/lineFormatter";
 import {readAllLinesFromFile, writeLinesToFile} from "./main/fileHandler/fileHandler";
 import {changeDate} from "./main/dateFormatter/dateFormatter";
+import {updateElectronApp, UpdateSourceType} from "update-electron-app";
+
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.ElectronPublicUpdateService,
+    repo: 'Alecktos/aip-fileformatter'
+  },
+});
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
