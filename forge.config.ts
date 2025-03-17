@@ -14,7 +14,7 @@ const config: ForgeConfig = {
   rebuildConfig: {},
   makers: [
       new MakerSquirrel({
-      }, ['linux', 'win32']), new MakerZIP({}, ['darwin']), new MakerDMG({}, ['darwin'])
+      }, ['win32'])
   ],
   publishers: [
     {
