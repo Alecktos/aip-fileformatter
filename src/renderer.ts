@@ -29,7 +29,42 @@
 import './index.css';
 import './spinner.css';
 
-// Format File Page
+/* View logic */
+
+const enum View {
+    FormatFile = 'format-file-view',
+    ChangeDate = 'change-date-view'
+}
+let currentView = View.FormatFile
+
+const formatFileViewButton = document.getElementById('format-file-view-button') as HTMLButtonElement;
+const changeDateViewButton = document.getElementById('change-date-view-button') as HTMLButtonElement;
+
+formatFileViewButton.addEventListener('click', () => {
+    currentView = View.FormatFile
+    setView(currentView);
+});
+
+changeDateViewButton.addEventListener('click', () => {
+    currentView = View.ChangeDate
+    setView(currentView);
+});
+
+const setView = (view: View) => {
+    const changeDateDiv = document.getElementById('change-date') as HTMLDivElement;
+    if (view === View.FormatFile) {
+        changeDateDiv.style.display = 'none';
+        formatFileViewButton.style.color = "black";
+        changeDateViewButton.style.color = "grey";
+    }
+    if (view === View.ChangeDate) {
+        changeDateDiv.style.display = 'block';
+        changeDateViewButton.style.color = "black";
+        formatFileViewButton.style.color = "grey";
+    }
+}
+
+/* Format Logic */
 
 const formatFileButton = document.getElementById('format-files') as HTMLButtonElement;
 const selectFileButton = document.getElementById('select-file') as HTMLButtonElement;
@@ -51,10 +86,9 @@ selectFileButton.addEventListener('click', async () => {
 formatFileButton.addEventListener('click', async () => {
     formatFileSpinner.style.visibility = 'visible';
 
-    if(window.location.pathname === "/") {
+    if(currentView === View.FormatFile) {
         await window.electronAPI.formatFile(selectedFileInput.value)
-    } else if (window.location.pathname === "/changeDate.html") {
-        console.log('klickar och kör changeDate: ', Number(addDaysInput.value.trim()));
+    } else if (currentView === View.ChangeDate) {
         await window.electronAPI.changeDate(selectedFileInput.value, Number(addDaysInput.value.trim()))
     }
 

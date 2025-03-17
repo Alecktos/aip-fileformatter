@@ -14,14 +14,22 @@ body {
   padding: 1rem;
   margin-left: auto;
   margin-right: auto;
-  a {
+  button {
     margin-right: 1rem;
     color: gray;
     text-decoration: none;
+    background-color: transparent;
+    font-size: 14px;
+    border: none;
+    display: inline-block;
   }
-  a:hover {
+  button:hover {
     color: black;
   }
+}
+
+button, input {
+  cursor: pointer;
 }
 
 /* File Format */

@@ -7,8 +7,8 @@
 <body>
 
 <div class="navbar">
-    <a style="color: black" href="./index.html">Formatera fil</a>
-    <a href="./changeDate.html">Ändra datum i fil</a>
+    <button id="format-file-view-button" style="color: black" href="#">Formatera fil</button>
+    <button id="change-date-view-button" href="#">Ändra datum i fil</button>
 </div>
 
 <div style="text-align:center;">
@@ -16,6 +16,11 @@
         <h4>Dra in eller välj fil </h4>
         <input type="text" id="selected-file" disabled="disabled"/>
         <input type="button" value="Välj en fil" id="select-file"/>
+    </div>
+
+    <div id="change-date" style="display:none;">
+        <label for="add-days">Antal dagar</label>
+        <input type="number" disabled=disabled id="add-days" name="addDays" min="10" max="100" />
     </div>
 
     <button id="format-files" disabled="disabled">
