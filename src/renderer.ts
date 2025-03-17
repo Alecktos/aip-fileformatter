@@ -66,11 +66,11 @@ const setView = (view: View) => {
 
 /* Format Logic */
 
-const formatFileButton = document.getElementById('format-files') as HTMLButtonElement;
+const formatFileButton = document.getElementById('format-file') as HTMLButtonElement;
 const selectFileButton = document.getElementById('select-file') as HTMLButtonElement;
 const selectedFileInput = document.getElementById('selected-file') as HTMLInputElement;
 const formatFileSpinner = document.getElementById('format-file-spinner') as HTMLDivElement;
-const addDaysInput = document.getElementById('add-days') as HTMLInputElement || {} as HTMLInputElement;
+const addDaysInput = document.getElementById('add-days') as HTMLInputElement;
 
 const setFileSelectedState = (filePath) => {
     selectedFileInput.value = filePath
