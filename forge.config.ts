@@ -25,7 +25,8 @@ const config: ForgeConfig = {
           name: 'aip-fileformatter'
         },
         prerelease: false,
-        force: true
+        force: true,
+        draft: false
       }
     }
   ],
