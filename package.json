@@ -1,7 +1,7 @@
 {
   "name": "aip-format-file",
   "productName": "aip-format-file",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Formatering av filer",
   "main": ".vite/build/main.js",
   "scripts": {
