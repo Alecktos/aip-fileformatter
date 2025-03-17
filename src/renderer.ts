@@ -51,7 +51,7 @@ changeDateViewButton.addEventListener('click', () => {
 });
 
 const setView = (view: View) => {
-    const changeDateDiv = document.getElementById('change-date') as HTMLDivElement;
+    const changeDateDiv = document.getElementById('change-date-div') as HTMLDivElement;
     if (view === View.FormatFile) {
         changeDateDiv.style.display = 'none';
         formatFileViewButton.style.color = "black";
@@ -73,6 +73,9 @@ const formatFileSpinner = document.getElementById('format-file-spinner') as HTML
 const addDaysInput = document.getElementById('add-days') as HTMLInputElement;
 
 const setFileSelectedState = (filePath) => {
+    if(!filePath) {
+        return;
+    }
     selectedFileInput.value = filePath
     formatFileButton.disabled = false;
     addDaysInput.disabled = false;
