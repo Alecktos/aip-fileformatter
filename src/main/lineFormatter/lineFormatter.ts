@@ -6,11 +6,11 @@ export const parseLine = (line: string): string => {
         .map((chunk) => chunk.trim())
         .filter((chunk) => chunk.length > 0);
 
-    if (containsOnlyUpperCaseLetters(chunks[0])) {
+    if (containsOnlyUpperCaseLettersAndNumbers(chunks[0])) {
         chunks.splice(0, 1); // remove first index
     }
 
-    if (containsOnlyUpperCaseLetters(chunks[chunks.length - 1])) {
+    if (containsOnlyUpperCaseLettersAndNumbers(chunks[chunks.length - 1])) {
         chunks.splice(chunks.length - 1, 1); // remove last index
     }
 
@@ -36,8 +36,8 @@ const containsOnlyOneNumber = (str: string): boolean => {
     return str.match(/\d/g).length === 1;
 }
 
-const containsOnlyUpperCaseLetters = (str: string): boolean => {
-    return /^[A-Z]+$/.test(str);
+const containsOnlyUpperCaseLettersAndNumbers = (str: string): boolean => {
+    return /^[A-Z0-9]+$/.test(str);
 }
 
 const splitFirstColumn = (firstColumn: string): string => {
