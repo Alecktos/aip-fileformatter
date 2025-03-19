@@ -72,6 +72,7 @@ app.on('ready', () => {
   ipcMain.handle('open-dialog', handleOpenDialog)
   ipcMain.handle('format-file', handleFormatingFile);
   ipcMain.handle('change-date', handleChangingDate);
+  ipcMain.handle('get-app-version', () => app.getVersion());
   createWindow();
 });
 

@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     openDialog: () => ipcRenderer.invoke('open-dialog'),
     formatFile: (filePath: string) => ipcRenderer.invoke('format-file', filePath),
     changeDate: (filePath: string, daysToAdd: number) => ipcRenderer.invoke('change-date', filePath, daysToAdd),
-    pathForFile: (file) => webUtils.getPathForFile(file),
+    getAppVersion: () => ipcRenderer.invoke('get-app-version') ,
+    pathForFile: (file) => webUtils.getPathForFile(file)
 })
